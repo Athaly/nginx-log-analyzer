@@ -1,0 +1,28 @@
+#!/bin/bash
+
+LOGFILE="nginx_logs"
+
+#Verifica el archivo
+if [[ ! -f "$LOGFILE" ]]; then
+	echo "No se encontró el archivo $LOGFILE"
+	exit 1
+fi
+
+#imprime top 5 ip
+echo -e "\n===============================\nTop 5 IP con mas pedidos:\n==============================="
+awk '{print $1}' "$LOGFILE" | sort | uniq -c | sort -nr | head -n 5 | awk '{printf "%s - %s requests\n", $2, $1}'
+
+#imprime top 5 path
+echo -e "\n===============================\nTop 5 path mas solicitados:\n==============================="
+awk -F\" '{print $2}' "$LOGFILE" | awk '{print $2}' | sort | uniq -c | sort -nr | head -n 5 | awk '{printf "%s - %s requests\n", $2, $1}'
+
+
+#imprime top 5 codigos de estado
+echo -e "\n===============================\nTop 5 codigos de estado:\n==============================="
+awk  '{print $9}' "$LOGFILE" | sort | uniq -c | sort -nr | head -n 5 | awk '{printf "%s - %s requests\n", $2, $1}'
+
+
+#imprime top 5 del campo user-agent
+echo -e "\n===============================\nTop 5 user agents:\n==============================="
+awk -F\" '{print $6}' "$LOGFILE" | sort | uniq -c | sort -nr | head -n 5 | awk '{printf "%s - %s requests\n", $2, $1}'
+

@@ -16,5 +16,6 @@ El script muestra:
 ```bash
 chmod +x nginx-log-analyzer.sh
 ./nginx-log-analyzer.sh
+``
 
 <!-- https://roadmap.sh/projects/nginx-log-analyser -->

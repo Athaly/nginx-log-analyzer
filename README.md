@@ -1,13 +1,18 @@
 # Nginx Log Analyzer
 
-Este es un script en Bash que analiza un archivo de logs de acceso de Nginx.
+Script en Bash que analiza un archivo de logs de acceso de Nginx.  
+Proyecto original: https://roadmap.sh/projects/nginx-log-analyser
+
+## Descripción
+
+Este script permite obtener un resumen rápido del tráfico web registrado en los logs de Nginx, útil para tareas básicas de análisis.
 
 ## Funcionalidad
 
 El script muestra:
 
 - Top 5 direcciones IP con más solicitudes
-- Top 5 paths más solicitados
+- Top 5 rutas (paths) más solicitadas
 - Top 5 códigos de estado HTTP
 - Top 5 User Agents más comunes
 
@@ -17,5 +22,3 @@ El script muestra:
 chmod +x nginx-log-analyzer.sh
 ./nginx-log-analyzer.sh
 ```
-
-<!-- https://roadmap.sh/projects/nginx-log-analyser -->
